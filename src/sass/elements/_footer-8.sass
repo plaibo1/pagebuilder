@@ -1,0 +1,125 @@
+.footer-8
+	background: $dark
+	padding: 75px 0
+	position: relative
+	overflow: hidden
+
+	&__footer
+		display: flex
+		align-items: center
+		border-top: 1px solid $grey
+		padding-top: 20px
+		font-size: 14px
+		color: $grey
+
+		p
+			color: inherit
+			margin: 0
+			font-size: inherit
+		
+		i 
+			color: $baseColor
+			margin-left: 5px
+			font-size: inherit
+			[dir=rtl] &
+				margin-left: 0
+				margin-right: 5px
+
+	&__options
+		padding: 45px 0
+		[dir=rtl] &
+			text-align: right
+		&__img
+			margin-top: 30px
+			width: 100%
+			position: relative
+			img
+				width: 90%
+		&__logo 
+			width: 65px 
+			height: 65px
+			position: relative
+			margin-bottom: 10px
+			img 
+				width: 100% !important
+
+		&__text
+			width: 90%
+			p 
+				color: $greyBlue
+				font-size: 16px
+
+		&__heading
+			margin: 0.3rem 0
+			h4
+				margin-bottom: 25px
+				color: #ffffff
+
+		&__list
+			margin: 0.7rem 0
+			margin-bottom: 30px
+			ul 
+				list-style: none
+				padding: 0
+				li 
+					margin: 10px 0
+					color: $greyBlue
+					transition: all 0.3s ease
+					a 
+						display: block
+						text-decoration: none
+						color: inherit
+						transition: inherit
+						
+					&:hover a, &:hover 
+						color: $baseColor
+						margin-left: 3px
+
+
+		&__socialmedia	
+			margin: 0.7rem 0
+			margin-bottom: 30px
+			ul 
+				list-style: none
+				padding: 0
+				display: flex
+				li 
+					margin-right: 5px
+					a 
+						width: 30px
+						height: 30px
+						display: flex
+						justify-content: center
+						align-items: center
+						font-size: 18px
+						text-decoration: none
+						color: $baseColor
+						border-radius: 50%
+						@include cube(0.5s)
+
+						&:hover 
+							background: #ffffff
+							color: $baseColorDark
+							transform: rotate(360deg)
+							
+		&__form
+			form
+				width: 100%
+				position: relative
+				margin-bottom: 25px
+				input
+					width: 100%
+					border: none
+					outline: none
+					background: #ffffff
+					padding: 5px 10px
+					border-radius: 6px
+					margin-bottom: 15px
+				button
+					width: 100% !important
+
+
+@media (max-width: 575px)
+	.footer-8
+		&__options
+			padding: 10px 0

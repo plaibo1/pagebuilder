@@ -1,0 +1,41 @@
+.header-11
+	position: relative
+	min-height: 100vh
+	display: flex
+	align-items: center
+	justify-content: center
+	&__content
+		h1
+			font-weight: 900
+		p
+			margin: 25px 0
+	&__card
+		width: 100%
+		position: relative
+		background: getColor(cardColor)
+		padding: 20px
+		border-radius: 10px
+		margin-top: 30px
+		transition: all 0.3s ease
+		@include softShadow(0.3)
+		[dir=rtl] &
+			text-align: right
+		&:hover
+			transform: translateY(-5px)
+			@include softShadow(0.5)
+		&:hover &__icon
+			transform: translateY(-5px)
+			@include softShadow(0.5)
+		&__icon
+			width: 50px
+			height: 50px
+			display: flex
+			justify-content: center
+			align-items: center
+			margin-bottom: 15px
+			border-radius: 5px
+			transition: all 0.3s ease
+			@include softShadow(0.3)
+			i
+				font-size: 25px
+				color: $baseColor

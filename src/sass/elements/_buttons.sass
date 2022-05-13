@@ -1,0 +1,310 @@
+// use this class if dont need 'margin-right'
+.no-mr
+	margin-right: 0 !important
+	[dir=rtl] &
+		margin-left: 0 !important
+
+.appyBtn
+	border: none
+	outline: none
+	display: inline-flex
+	justify-content: center
+	align-items: center
+	border-radius: 5px
+	font-weight: bold
+	margin-right: 15px
+	transition: all 0.3s ease
+	cursor: pointer
+	[dir=rtl] &
+		margin-right: 0
+		margin-left: 15px
+
+
+	i
+		margin-left: 5px
+		transition: transform 0.3s ease
+		[dir=rtl] &
+			margin-left: 0
+			margin-right: 5px
+			transform: rotateY(180deg)
+
+	&:hover i
+		transform: translateX(5px)
+		[dir=rtl] &
+			transform: translateX(-5px) rotateY(180deg)
+
+		
+	// default start 
+	&.is-purple
+		background: #3c66fe
+		color: #ffffff
+		&:hover
+			background: #053bfb
+	
+	&.is-green
+		background: #0bda7c
+		color: #ffffff
+		&:hover
+			background: #1ff393
+	
+	&.is-dark
+		background: #36393f
+		color: #ffffff
+		&:hover
+			background: #181818
+
+	&.is-orange
+		background: #ffa545
+		color: #ffffff
+		&:hover
+			background: #f58813
+
+	// border start
+	&.is-orange-border
+		color: #ffa545
+		border: 1.5px solid #ffa545
+		background: transparent
+		&:hover
+			background: #ffa545
+			color: #ffffff
+
+	&.is-purple-border
+		color: #3c66fe
+		border: 1.5px solid #3c66fe
+		background: transparent
+		&:hover
+			background: #3c66fe
+			color: #ffffff
+
+	&.is-green-border
+		color: #0bda7c
+		border: 1.5px solid #0bda7c
+		background: transparent
+		&:hover
+			background: #0bda7c
+			color: #ffffff
+	
+	&.is-dark-border
+		color: #36393f
+		border: 1.5px solid #36393f
+		background: transparent
+		&:hover
+			background: #36393f
+			color: #ffffff
+
+
+
+.is-dark-gradient
+	background: linear-gradient(90deg, rgba(90,95,105,1) 0%, rgba(32,34,37,1) 100%)
+	color: #ffffff !important
+
+	&:hover 
+		background: linear-gradient(90deg, rgba(32,34,37,1) 0%, rgba(90,95,105,1) 100%)
+
+
+.is-purple-gradient
+	background: linear-gradient(90deg, rgba(97,67,247,1) 0%, rgba(138,48,255,1) 100%)
+	color: #ffffff !important
+
+	&:hover
+		background: linear-gradient(90deg, rgba(138,48,255,1) 0%, rgba(97,67,247,1) 100%)
+	
+.is-orange-gradient
+	background: linear-gradient(90deg, rgba(255,165,69,1) 0%, rgba(255,212,82,1) 100%)
+	color: #ffffff !important
+	
+	&:hover 
+		background: linear-gradient(90deg, rgba(255,212,82,1) 0%, rgba(255,165,69,1) 100%)
+
+.is-green-gradient
+	background: linear-gradient(90deg, rgba(11,218,124,1) 0%, rgba(14,255,145,1) 100%)
+	color: #ffffff !important
+
+	&:hover
+		background: linear-gradient(90deg, rgba(14,255,145,1) 0%, rgba(11,218,124,1) 100%)
+
+
+
+
+// appy btn size
+
+.and-small
+	min-width: 100px
+	font-size: 15px
+	padding: 8px 15px
+
+.and-medium
+	min-width: 135px
+	font-size: 16px
+	padding: 12px 15px
+
+.and-large
+	min-width: 150px
+	font-size: 17px
+	padding: 14px 15px
+
+.and-xlarge
+	min-width: 190px
+	font-size: 18px
+	padding: 20px 15px
+
+// appy btn size end
+
+
+
+
+// appyBtnsGroup start
+
+.appyBtnsGroup
+	border-radius: 14px
+	display: inline-flex
+
+	button, a
+		border: none
+		background: none
+		outline: none
+		border-radius: 0px
+		color: #181818
+		text-decoration: none
+		display: inline-flex
+		justify-content: center
+		align-items: center
+		cursor: pointer
+		font-family: 'Roboto',sans-serif
+
+		
+		&:first-child
+			border-top-left-radius: 10px
+			border-bottom-left-radius: 10px
+			[dir=rtl] &
+				border-top-left-radius: 0
+				border-bottom-left-radius: 0
+				border-top-right-radius: 10px
+				border-bottom-right-radius: 10px
+
+		&:last-child
+			border-top-right-radius: 10px
+			border-bottom-right-radius: 10px
+			[dir=rtl] &
+				border-top-right-radius: 0
+				border-bottom-right-radius: 0
+				border-top-left-radius: 10px
+				border-bottom-left-radius: 10px
+
+
+// abg colors
+
+.abg-purple
+	border: 2px solid #6143f7
+	& .is-active
+		background: #6143f7
+		color: #ffffff
+
+	button, a
+		color: #6143f7
+		transition: all 0.3s ease
+
+		&:hover 
+			background: #6143f7
+			color: #ffffff
+
+
+.abg-orange
+	border: 2px solid #ffa545
+	& .is-active
+		background: #ffa545
+		color: #ffffff
+
+	button, a
+		color: #ffa545
+		transition: all 0.3s ease
+
+		&:hover 
+			background: #ffa545
+			color: #ffffff
+
+// abg size
+
+.abg-small
+	button, a
+		padding: 8px 15px
+		font-size: 15px
+
+.abg-medium
+	button, a
+		padding: 12px 15px
+		font-size: 16px
+
+// appuButtonGroup end
+
+
+.appyPlayBtn
+	position: relative
+	width: 65px
+	height: 65px
+	border-radius: 50%
+	display: flex
+	justify-content: center
+	align-items: center
+	z-index: 100
+	@include baseShadow(0.15)
+	i
+		font-size: 25px
+		color: #ffffff
+
+	&:before
+		content: ""
+		position: absolute
+		border-radius: 50%
+		opacity: 0.5
+		z-index: -1
+		animation: 1.5s pulseVideoBtn linear infinite
+
+	&:after
+		content: ""
+		position: absolute
+		border-radius: 50%
+		opacity: 0.5
+		z-index: -1
+		animation: 0.8s pulseVideoBtn2 linear infinite
+	
+	&.absoluteCentered
+		position: absolute !important
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+	
+	&.is-green
+		background: $green
+		&:before
+			background: $green
+		&:after
+			background: $green
+
+	&.is-baseColor
+		background: $baseColor
+		&:before
+			background: $baseColor
+		&:after
+			background: $baseColor
+	
+	&.is-purple
+		background: #6143f7
+		&:before
+			background: #6143f7
+		&:after
+			background: #6143f7
+	
+	&.is-orange
+		background: $orange
+		&:before
+			background: $orange
+		&:after
+			background: $orange
+
+	&.is-dark
+		background: $dark
+		&:before
+			background: $dark
+		&:after
+			background: $orange

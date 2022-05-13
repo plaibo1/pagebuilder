@@ -1,0 +1,62 @@
+.appyContent
+	padding: 20px 0
+	position: relative
+
+	h1, h2, h3, h4, h5, h6
+		span
+			color: $baseColor
+		[dir=rtl] &
+			text-align: right
+
+	p
+		margin: 15px 0
+		[dir=rtl] &
+			text-align: right
+
+	form
+		margin-bottom: 25px
+	
+	img, iframe, video, svg
+		width: 100%
+		z-index: 11
+
+	&__boxWrapper
+		width: 100%
+		position: relative
+		display: flex
+		flex-wrap: wrap
+		margin-bottom: 25px
+		&__box
+			margin: 10px
+			min-width: 110px
+			min-height: 110px
+			display: inline-flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			background-color: getColor(cardColor)
+			border-radius: 15px
+			transition: all 0.3s ease
+			cursor: default
+			box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px
+			&:first-child
+				margin-left: 0
+				[dir=rtl] &
+					margin-left: 10px
+					margin-right: 0px
+			i
+				font-size: 22px
+				color: $baseColor
+			h4
+				margin: 5px 0
+				font-family: 'Roboto', sans-serif
+			span
+				color: #a6a6a6
+			&:hover
+				transform: translateY(-5px)
+				background-color: getColor(bodyColor)
+				 
+				
+	&__buttons
+		width: 100%
+		display: flex

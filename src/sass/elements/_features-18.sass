@@ -1,0 +1,38 @@
+.features-18
+	&__card
+		padding: 35px 15px
+		border-radius: 10px
+		cursor: default
+		background: getColor(cardColor)
+		@include baseShadow(0.15)
+		@include cube(0.3s)
+
+		&__icon
+			width: 100px
+			height: 100px
+			margin: 0 auto
+			margin-bottom: 20px
+			background: #e7e7e7
+			display: flex
+			border-radius: 36% 64% 72% 28% / 33% 46% 54% 67%
+			@include cube(0.3s)
+			i
+				margin: auto
+				color: $baseColor
+				font-size: 37px
+
+		&:hover &__icon
+			border-radius: 26% 74% 27% 73% / 52% 28% 72% 48%
+		&:hover
+			transform: translateY(-5px)
+			@include baseShadow(0.20)
+
+		&__text
+			text-align: center
+			p
+				margin: 0
+
+@media (max-width: 991px)
+	.features-18
+		&__card
+			margin: 1rem 0

@@ -1,0 +1,31 @@
+.partners-2
+	&__content
+		&__text
+			h2
+				span
+					color: $baseColor
+		&__logos
+			margin-bottom: 20px
+			display: flex
+			flex-wrap: wrap
+			&__img
+				position: relative
+				margin-top: 10px
+				margin-right: 10px
+				width: 150px
+				height: auto
+				filter: grayscale(1)
+				transition: filter 0.3s ease
+				&:hover
+					filter: grayscale(0)
+				img
+					width: 100%
+				[dir=rtl] &
+					margin-right: 0
+					margin-left: 10px
+
+	&__img
+		width: 100%
+		position: relative
+		img
+			width: 100%
