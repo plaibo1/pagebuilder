@@ -26,6 +26,8 @@ const Elements = () => {
         pattern.forEach(item => {
             regExp = new RegExp(item, 'g');
 
+            console.log(element.info.images[item])
+
             if (!result) result = element.info.html.replace(regExp, `<img src='${element.info.images[item]}' alt='img'>`);
             else {
                result = result.replace(regExp, `<img src='${element.info.images[item]}' alt='img'>`);

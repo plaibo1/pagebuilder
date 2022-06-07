@@ -19,15 +19,13 @@ const MySites = () => {
 
     const dispatch = useDispatch()
     const mySites = useSelector(state => state.userData.mySites)
-    
+
 
     useEffect(() => {
         dispatch(getSaveSites())
     }, []);
 
-    useEffect(() => {
-        dispatch(getSaveSites())
-    }, [mySites]);
+
 
     const setSaveToCurHTML = (index) => {
         dispatch(updateCurrentHtml(mySites[index].siteInfo))
@@ -39,7 +37,10 @@ const MySites = () => {
         console.log(siteId)
 
        deleteSite(siteId)
-        .then(data => console.log(data));
+        .then(data => {
+            console.log(data)
+            dispatch(getSaveSites())
+        });
     }
 
     const onCreateNew = () => {
