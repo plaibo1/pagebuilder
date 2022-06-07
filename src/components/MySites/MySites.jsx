@@ -25,6 +25,10 @@ const MySites = () => {
         dispatch(getSaveSites())
     }, []);
 
+    useEffect(() => {
+        dispatch(getSaveSites())
+    }, [mySites]);
+
     const setSaveToCurHTML = (index) => {
         dispatch(updateCurrentHtml(mySites[index].siteInfo))
         dispatch(setSaveItemId(mySites[index].id))
