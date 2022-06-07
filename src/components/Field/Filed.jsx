@@ -126,7 +126,7 @@ const Filed = () => {
           const editingItem = elementsArr.splice(currentEditingElementIndex, 1)
 
           const regExpStr = stringImgName.replace(/ contenteditable="true"/g, '');
-          const regExp = new RegExp(regExpStr, 'g');
+          const regExp = new RegExp(regExpStr, '');
 
           const htmlWithoutQuots = editingItem[0].replace(/'/g, `"`);
 
