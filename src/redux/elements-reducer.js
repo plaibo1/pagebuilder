@@ -1226,7 +1226,7 @@ export const getElements = () => {
   return async (dispatch) => {
 
     const queryConstructor = (bdName, setter) => {
-      fetch('http://localhost:5000/api/elements/' + bdName)
+      fetch(`${process.env.REACT_APP_API_URL}api/elements/${bdName}`)
         .then(response => response.json())
         .then(json => dispatch(setter(json)))
     }
