@@ -1,3 +1,4 @@
+import { sendImg } from "../http/userAPI";
 
 
 const SET_CURRENT_HTML = 'pageBuilder/elementReducer/SET_CURRENT_HTML';
@@ -7,6 +8,8 @@ const SET_HEADERS = 'pageBuilder/elementReducer/SET_HEADERS';
 const SET_FEATURES = 'pageBuilder/elementReducer/SET_FEATURES';
 const SET_PARTNERS = 'pageBuilder/elementReducer/SET_PARTNERS';
 const SET_FOOTERS = 'pageBuilder/elementReducer/SET_FOOTERS';
+const SET_MODAL_CONFETTI = 'pageBuilder/elementReducer/SET_MODAL_CONFETTI';
+const SET_SAVE_ITEM_ID = 'pageBuilder/elementReducer/SET_SAVE_ITEM_ID';
 
 
 let initialState = {
@@ -1134,70 +1137,88 @@ let initialState = {
   },
 
   currentHtml: [],
-  editingItem: []
+  editingItem: [],
+
+  saveItemId: 0,
+
+  showConfetti: false
 }
 
 const elementsListReducer = (state = initialState, action) => {
 
+  switch (action.type) {
 
-    switch(action.type){
+    case SET_SAVE_ITEM_ID:
+      return {
+        ...state,
+        saveItemId: action.itemId
+      }
 
-        case SET_HEADERS:
-          return {
-            ...state,
-            elements: {...state.elements, "headers": action.element}
-          }
-        
-        case SET_FEATURES:
-          return {
-            ...state,
-            elements: {...state.elements, "features": action.element}
-          }
+    case SET_MODAL_CONFETTI:
+      return {
+        ...state,
+        showConfetti: action.confetti
+      }
 
-        case SET_PARTNERS:
-          return {
-            ...state,
-            elements: {...state.elements, "partners": action.element}
-          }
+    case SET_HEADERS:
+      return {
+        ...state,
+        elements: { ...state.elements, "headers": action.element }
+      }
 
-        case SET_FOOTERS:
-          return {
-            ...state,
-            elements: {...state.elements, "footers": action.element}
-          }
+    case SET_FEATURES:
+      return {
+        ...state,
+        elements: { ...state.elements, "features": action.element }
+      }
 
-        case SET_CURRENT_HTML:
-            return {
-                ...state,
-                currentHtml: [...state.currentHtml, action.html],
-            }
-            
-        case UPDATE_CURRENT_HTML:
-            return {
-                ...state,
-                currentHtml: action.html
-            }
+    case SET_PARTNERS:
+      return {
+        ...state,
+        elements: { ...state.elements, "partners": action.element }
+      }
 
-        case SET_EDITING_ITEM:
-          return {
-            ...state,
-            editingItem: action.item
-          }
+    case SET_FOOTERS:
+      return {
+        ...state,
+        elements: { ...state.elements, "footers": action.element }
+      }
 
-        default:
-            return state;
-    }
+    case SET_CURRENT_HTML:
+      return {
+        ...state,
+        currentHtml: [...state.currentHtml, action.html],
+      }
+
+    case UPDATE_CURRENT_HTML:
+      return {
+        ...state,
+        currentHtml: action.html
+      }
+
+    case SET_EDITING_ITEM:
+      return {
+        ...state,
+        editingItem: action.item
+      }
+
+    default:
+      return state;
+  }
 
 }
 
 export const setCurrentHtml = (html) => ({type: SET_CURRENT_HTML, html})
 export const updateCurrentHtml = (html) => ({type: UPDATE_CURRENT_HTML, html})
 export const setEditingItem = (item) => ({type: SET_EDITING_ITEM, item})
+export const setSaveItemId = (itemId) => ({type: SET_SAVE_ITEM_ID, itemId})
 
 export const setHeaders = (element) => ({type: SET_HEADERS, element})
 export const setFeatures = (element) => ({type: SET_FEATURES, element})
 export const setPartners = (element) => ({type: SET_PARTNERS, element})
 export const setFooters = (element) => ({type: SET_FOOTERS, element})
+
+export const setModalConfetti = (confetti) => ({type: SET_MODAL_CONFETTI, confetti})
 
 
 
@@ -1218,6 +1239,12 @@ export const getElements = () => {
   }
 }
 
+export const sendImgToServer = (img) => {
+  return async dispatch => {
 
+    sendImg(img).then(data => console.log(data))
+
+  }
+}
 
 export default elementsListReducer

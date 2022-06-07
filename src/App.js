@@ -1,4 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.sass';
+
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageBuilder from './components/PageBuilder/PageBuilder';
@@ -7,18 +9,34 @@ import AddElementPage from './components/AddElementPage/AddElementPage';
 import Navbar from './components/Navbar/Navbar';
 import RegFrom from './components/AuthForms/RegForm';
 import LoginForm from './components/AuthForms/LoginForm';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { checkUser } from './redux/user-reducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Confetti from "react-confetti";
+import { setModalConfetti } from './redux/elements-reducer';
+import MySites from './components/MySites/MySites';
 
 function App() {
 
   const dispatch = useDispatch()
+  const modalConfettiStatus = useSelector(state => state.elementsList.showConfetti)
+
+  const [width, setWidth] = useState(300);
+  const [height, setHeight] = useState(300);
+
 
   useEffect(()=> {
-    dispatch(checkUser())  
+    dispatch(checkUser())
+
+    setHeight(window.clientHeight);
+    setWidth(window.clientWidth);
   }, [])
 
+
+  const endConfetti = () => {
+    dispatch(setModalConfetti(false))
+  }
   
   return (
     <BrowserRouter>
@@ -26,8 +44,27 @@ function App() {
 
         <Navbar/>
 
+
+        {modalConfettiStatus && 
+          <div className='modalConfetti'>
+          <Confetti
+              recycle={modalConfettiStatus}
+              numberOfPieces={250}
+              width={width}
+              height={height}
+            />
+            <div className='modalConfetti__content'>
+              Ваш сайт уже скачивается 🎉
+              <span>Не забудьте рассказать о нас</span>
+              <button onClick={endConfetti}>ok</button>
+            </div>
+          </div>
+        }        
+
+
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/mySites' element={<MySites />} />
           <Route path='/app' element={<PageBuilder />} />
           <Route path='/add-element' element={<AddElementPage />} />
 

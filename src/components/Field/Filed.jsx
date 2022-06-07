@@ -4,6 +4,9 @@ import { setEditingItem, updateCurrentHtml } from '../../redux/elements-reducer'
 import Modal from '../Modal/Modal'
 import s from '../Modal/modal.module.sass'
 
+import { useForm } from "react-hook-form";
+import { sendImg } from "../../http/userAPI";
+
 import boyWithHat from '../../img/prebuildField.png'
 
 import { BiArrowToTop } from "react-icons/bi";
@@ -16,10 +19,13 @@ import { ImBin } from "react-icons/im";
 const Filed = () => {
 
   const [modalActive, setModalActive] = useState(false);
+  const [chooseImgModalActive, setChooseImgModalActive] = useState(false);
+
+  const [stringImgName, setStringImgName] = useState('');
 
   const [currentEditingElementIndex, setCurrentEditingElementIndex] = useState(0);
-  const [moveTopBtnItem, setMoveTopBtnItem] = useState(false);
-  const [moveBottomBtnItem, setMoveBottomBtnItem] = useState(false);
+
+
   const ref = useRef();
 
   const dispatch = useDispatch()
@@ -49,12 +55,17 @@ const Filed = () => {
     setModalActive(true)
     setCurrentEditingElementIndex(itemIndex)
   }
-
   
   const startEditing = (e) => {
     e.preventDefault()
     const clickedItem = e.target;
     clickedItem.setAttribute('contenteditable', 'true');
+    
+
+    if (clickedItem.alt === 'img') {
+      setStringImgName(clickedItem.outerHTML)
+      setChooseImgModalActive(true)
+    }
   }
 
   const saveEditedItem = () => {
@@ -100,6 +111,40 @@ const Filed = () => {
     }
 
   }
+
+  // ======== sendImage ========
+  const {register, handleSubmit} = useForm()
+
+  const onImgAdd = (data) => {
+
+      sendImg(data.img[0])
+        .then(data => {
+          const serverImgName = data.data.imgName;
+          const fullPathToSeverImg = `${process.env.REACT_APP_API_URL}${serverImgName}`
+
+          const elementsArr = [...elements]
+          const editingItem = elementsArr.splice(currentEditingElementIndex, 1)
+
+          const regExpStr = stringImgName.replace(/ contenteditable="true"/g, '');
+          const regExp = new RegExp(regExpStr, 'g');
+
+          const htmlWithoutQuots = editingItem[0].replace(/'/g, `"`);
+
+          const result = htmlWithoutQuots.replace(regExp, `<img src='${fullPathToSeverImg}' alt='img'>`);
+
+          
+          // elementsArr[currentEditingElementIndex] = result;
+          // dispatch(updateCurrentHtml(elementsArr))
+
+          
+          dispatch(setEditingItem([result]))
+
+          setChooseImgModalActive(false)
+
+        })
+        .catch(err => alert(err))
+      
+  }
   
   // ======== elements in the build page
   const elemFormArr = elements.map((item, index) => {
@@ -134,6 +179,21 @@ const Filed = () => {
       <Modal modalStatus={modalActive} setModalStatus={setModalActive}>
         <div onClick={(e) => startEditing(e)} ref={ref} dangerouslySetInnerHTML={getHTML(editingElement)}></div>
       </Modal>
+
+      <Modal modalStatus={chooseImgModalActive} setModalStatus={setChooseImgModalActive}>
+        <form onSubmit={handleSubmit(onImgAdd)}>
+                <input {
+                        ...register('img',
+                            {
+                                required: "*Поле обязательно к заполнению"
+                            })
+                        } 
+                        type='file'/>
+
+                <button className='btn btn-primary' type="submit">Save image</button>
+            </form>
+      </Modal>
+
 
       
 
