@@ -352,7 +352,7 @@ button[disabled]
   border-radius: 12px
   position: sticky
   top: 130px
-  z-index: 999
+  z-index: 100
   &__heading
     font-weight: bold
     font-size: 20px
@@ -414,6 +414,12 @@ button[disabled]
         border-radius: 20px
         max-height: 600px
         overflow-y: auto
+
+        @media screen and ( max-height: 850px )
+          max-height: 400px
+        @media screen and ( max-height: 663px )
+          max-height: 300px
+          
     
     &:hover &__elements
       display: block
