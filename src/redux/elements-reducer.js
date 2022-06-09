@@ -199,6 +199,75 @@ let initialState = {
         },
         html: "\n                <header class=\"header-7\">\n                <div class=\"container\">\n                  <div class=\"row d-flex justify-content-center align-items-center\">\n          \n                    <!-- col-start -->\n                    <div class=\"col-lg-6\">\n          \n                      <div class=\"header-7__content appyContent\">\n          \n                        <h4>AppyKit</h4>\n          \n                        <h1>We are Startup Creative <span>Agency</span></h1>\n          \n                        <p>\n                          Lorem ipsum dolor sit amet consectetur adipisicing elit. \n                          Sunt nostrum in, quas perferendis magnam omnis?\n                        </p>\n          \n                        <div class=\"appyContent__buttons\">\n                          <a href=\"#\" class=\"appyBtn is-purple and-large\">Read More <i class=\"fa fa-long-arrow-right\"></i></a>\n                          <a href=\"https://www.youtube.com/watch?v=A_MjCqQoLLA\" data-lity=\"\" class=\"appyBtn is-purple-border and-large\">\n                            Watch Video\n                            <i class=\"fa fa-play-circle-o\"></i>\n                          </a>\n                        </div>\n          \n                      </div>\n          \n                    </div>\n                    <!-- col-end -->\n          \n                    <div class=\"col-lg-6\">\n                      <div class=\"header-7__img\">\n                        header7-img\n                      </div>\n                    </div>\n          \n                  </div>\n                </div>\n              </header>\n                "
       },
+      header8: {
+        name: "header8",
+        headingImg: './img/headingImg/header8.png',
+        images: {
+          'header-8-img': './img/partners.png',
+        },
+        html: `
+        <header class="header-8">
+
+        <div class="header-8-wave">
+          <!--?xml version="1.0" encoding="utf-8"?-->
+          <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 150" style="enable-background:new 0 0 1920 150;" xml:space="preserve">
+            <style type="text/css">
+              .st0 {
+                fill: #fff;
+              }
+            </style>
+            <path class="st0" d="M0,0c277.6,47.2,580.4,114.1,960,112c352.5-2,697.2-67.3,960-112v150H0V0z"></path>
+          </svg>
+        </div>
+      
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+      
+            <div class="col-lg-10">
+      
+              <!-- content -->
+              <div class="header-8__content">
+      
+                <!-- text -->
+                <div class="header-8__content__text">
+                  <h1>Make your landing page with AppyKit</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Modi ut incidunt veniam eligendi, quas nulla, 
+                    laudantium, sint dolorum quod optio error. Aliquid, ut.
+                  </p>
+                </div>
+                <!-- /text -->
+      
+                <!-- form -->
+                <div class="row d-flex justify-content-center">
+                  <div class="col-12 col-sm-8 col-lg-7">
+      
+                    <form action="#" class="header-8__content__form">
+                      <input type="text" placeholder="Email">
+                      <button type="submit"><span>Get Started</span> <i class="fa fa-paper-plane"></i></button>
+                    </form>
+      
+                  </div>
+                </div>
+                <!-- /form -->
+      
+                <!-- img -->
+                <div class="header-8__content__img"> 
+                  header-8-img
+                </div>
+                <!-- /img -->
+      
+              </div>
+              <!-- /content -->
+      
+            </div>
+      
+          </div>
+        </div>
+      </header>
+        `
+      },
       header11: {
         name: "header11",
         headingImg: './img/headingImg/header11.png',

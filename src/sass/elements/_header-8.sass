@@ -1,0 +1,80 @@
+.header-8
+	padding-top: 80px
+	margin-bottom: 200px
+	background: $baseColor
+	position: relative
+	&-wave
+		width: 100%
+		height: auto
+		position: absolute
+		bottom: -2px
+		background-size: cover
+
+
+	&__content
+		&__text
+			text-align: center
+			h1
+				margin: 0
+				color: #ffffff
+			p
+				margin: 25px 0
+				color: $greyBlue
+
+		&__form
+			width: 100%
+			padding: 5px
+			position: relative
+			background: #ffffff
+			display: flex
+			border-radius: 50px
+			overflow: hidden
+			input
+				width: 90%
+				padding: 5px 10px
+				outline: none
+				border: none
+			button
+				min-width: 150px
+				border: none
+				outline: none
+				background: $green
+				color: #ffffff
+				cursor: pointer
+				border-radius: 25px
+				padding: 10px 0
+				@include cube(0.3s)
+				&:hover
+					background: $baseColorDark
+				&:hover i
+					margin-left: 10px	
+				span
+					font-weight: bold
+				i
+					@include cube(0.3s)
+
+		&__img
+			width: 100%
+			margin-top: 60px
+			margin-bottom: -100px
+			position: relative
+			border-radius: 15px
+			overflow: hidden
+			@include baseShadow(0.2)
+			@include cube(0.3s)
+			&:hover
+				transform: translateY(-5px)
+				@include baseShadow(0.3)
+			img
+				width: 100%
+
+@media (max-width: 375px)
+	.header-8
+		&__content
+			&__form
+				button
+					min-width: 100px
+					&:hover i
+						margin-left: 0
+					span
+						display: none
