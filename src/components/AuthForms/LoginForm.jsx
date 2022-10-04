@@ -14,7 +14,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <Form title={'Войти в аккаунт'} btnTitle={'Войти'} foo={logSubmit} />
+            <Form title={'Sign in'} btnTitle={'Sign in'} foo={logSubmit} />
         </>
     )
 }

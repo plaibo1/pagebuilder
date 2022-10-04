@@ -47,6 +47,7 @@ const Filed = () => {
   }
 
   // ======= editing item from building page
+  
   const editItem = (itemIndex) => {
     const elementsArr = [...elements]
     const editingItem = elementsArr.splice(itemIndex, 1); // only clicked element
@@ -131,11 +132,6 @@ const Filed = () => {
           const htmlWithoutQuots = editingItem[0].replace(/'/g, `"`);
 
           const result = htmlWithoutQuots.replace(regExp, `<img src='${fullPathToSeverImg}' alt='img'>`);
-
-          
-          // elementsArr[currentEditingElementIndex] = result;
-          // dispatch(updateCurrentHtml(elementsArr))
-
           
           dispatch(setEditingItem([result]))
 
@@ -147,6 +143,7 @@ const Filed = () => {
   }
   
   // ======== elements in the build page
+
   const elemFormArr = elements.map((item, index) => {
 
     return (
@@ -173,6 +170,7 @@ const Filed = () => {
         elements.length === 0 ? <div className='Field__prebuild'>
           <img src={boyWithHat} alt="img" />
           Let`s add some elements!
+          <span className='hideDiplom'>Здесь был Леонард Ахр, хуй</span>
         </div> : null
       }
 

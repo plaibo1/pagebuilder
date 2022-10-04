@@ -16,6 +16,23 @@ button[disabled]
   opacity: 0.5
   cursor: default
 
+@media screen and ( max-width: 1212px )
+  .App:before
+    content: ';( Sorry, Im lazy sometimes.  Use more larger screen...'
+    position: absolute
+    width: 100%
+    height: 100vh
+    background-color: #3f52fc
+    color: #fff
+    z-index: 99999
+    display: flex
+    justify-content: center
+    align-items: center
+  
+
+.hideDiplom
+  font-size: 9px
+  
 .homePage
   &__text
     text-align: center
@@ -340,6 +357,11 @@ button[disabled]
     display: flex
     align-items: center
     justify-content: center
+
+.authError
+  font-size: 15px
+  color: #f84040
+  margin-top: -20px
 
 
 .elementsContainer

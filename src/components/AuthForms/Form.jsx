@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { Navigate } from "react-router-dom"
-import { registerUser } from "../../redux/user-reducer"
 
 
 const Form = ({title, btnTitle, foo}) => {
@@ -36,6 +35,7 @@ const Form = ({title, btnTitle, foo}) => {
                             })
                         }
                     />
+                    <div className="authError">{errors.email?.message}</div>
                 </label>
 
                 <label>
@@ -48,6 +48,7 @@ const Form = ({title, btnTitle, foo}) => {
                             })
                         }
                     />
+                    <div className="authError">{errors.password?.message}</div>
                 </label>
                 
                 <div className="authForm__btn-wrapper">

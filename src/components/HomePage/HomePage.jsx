@@ -14,12 +14,12 @@ const HomePage = () => {
                 <Row className="d-flex justify-content-center">
                     <Col lg={8}>
                         <div className="homePage__text">
-                            <h1>PageBuilder <span>.</span> home page 🏠</h1>
-                            <h2><span>PageBuilder</span> - no code конструктор веб-сайтов</h2>
+                            <h1>PageBuilder</h1>
+                            <h2><span>PageBuilder</span> - no code landing page constructor</h2>
                             
                             <div className="homePage__buttonGroup">
-                                <Link className="homePage__buttonGroup__btn" to={'./reg'}>Зарегистрироваться {<FaUserEdit />}</Link>
-                                <Link className="homePage__buttonGroup__btn" to={'./app'}>Войти {<BiLogIn/>}</Link>
+                                <Link className="homePage__buttonGroup__btn" to={'./reg'}>Registration {<FaUserEdit />}</Link>
+                                <Link className="homePage__buttonGroup__btn" to={'./app'}>Sign in {<BiLogIn/>}</Link>
                             </div>
                         </div>
                         <div className="homePage__img">

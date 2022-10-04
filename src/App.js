@@ -22,15 +22,9 @@ function App() {
   const dispatch = useDispatch()
   const modalConfettiStatus = useSelector(state => state.elementsList.showConfetti)
 
-  const [width, setWidth] = useState(300);
-  const [height, setHeight] = useState(300);
-
 
   useEffect(()=> {
     dispatch(checkUser())
-
-    setHeight(window.clientHeight);
-    setWidth(window.clientWidth);
   }, [])
 
 
@@ -50,8 +44,8 @@ function App() {
           <Confetti
               recycle={modalConfettiStatus}
               numberOfPieces={250}
-              width={width}
-              height={height}
+              width={window.clientWidth}
+              height={window.clientHeight}
             />
             <div className='modalConfetti__content'>
               Ваш сайт уже скачивается 🎉
@@ -63,17 +57,18 @@ function App() {
 
 
         <Routes>
+
           <Route path='/' element={<HomePage />} />
-          <Route path='/mySites' element={<MySites />} />
-          <Route path='/app' element={<PageBuilder />} />
-          <Route path='/add-element' element={<AddElementPage />} />
+            <Route path='/mySites' element={<MySites />} />
+            <Route path='/app' element={<PageBuilder />} />
+            <Route path='/add-element' element={<AddElementPage />} />
 
-          <Route path='/reg' element={<RegFrom />} />
+            <Route path='/reg' element={<RegFrom />} />
 
-          <Route path='/login' element={<LoginForm />} />
+            <Route path='/login' element={<LoginForm />} />
 
-          <Route path='*' element={<h1>not found</h1>} />
-        </Routes>
+            <Route path='*' element={<h1>not found</h1>} />
+          </Routes>
 
       </div>
     </BrowserRouter>

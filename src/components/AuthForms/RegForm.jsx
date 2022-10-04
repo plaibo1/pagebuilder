@@ -14,7 +14,7 @@ const RegForm = () => {
 
     return (
         <>
-            <Form title={'Регистрация'} btnTitle={'Зарегистрироваться'} foo={regSubmit} />
+            <Form title={'Registration'} btnTitle={'Create account'} foo={regSubmit} />
         </>
     )
 }

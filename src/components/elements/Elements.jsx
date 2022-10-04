@@ -26,15 +26,19 @@ const Elements = () => {
         pattern.forEach(item => {
             regExp = new RegExp(item, 'g');
 
-            if (!result) result = element.info.html.replace(regExp, `<img src='${process.env.REACT_APP_API_URL + element.info.images[item].split('/')[2]}' alt='img'>`);
+            if (!result) result = 
+                element.info.html
+                .replace(regExp, `<img src='${process.env.REACT_APP_API_URL + element.info.images[item]
+                    .split('/')[2]}' alt='img'>`);
             else {
-               result = result.replace(regExp, `<img src='${process.env.REACT_APP_API_URL + element.info.images[item].split('/')[2]}' alt='img'>`);
+               result = 
+                result.replace(regExp, `<img src='${process.env.REACT_APP_API_URL + element.info.images[item]
+                    .split('/')[2]}' alt='img'>`);
             }
         })
 
         dispatch(setCurrentHtml(result));
     }
-
 
     const listOfElements = Object.keys(elements).map((category, index) => {
 

@@ -88,8 +88,8 @@ const Navbar = () => {
       <div className='appNav'>
 
         <div className="appNav__side">
-          <Link className='appNav__item' to={'/'}>Главная</Link>
-          {isAuth ? <Link className='appNav__item' to={'/mySites'}>Мои сайты {<GoHome />}</Link> : null}
+          <Link className='appNav__item' to={'/'}>Pagebuilder main</Link>
+          {isAuth ? <Link className='appNav__item' to={'/mySites'}>My sites {<GoHome />}</Link> : null}
         </div>
 
         <div className="appNav__side">
@@ -102,19 +102,19 @@ const Navbar = () => {
           {isAuth ?
             <>
               <Link className='appNav__item user' to={'/mySites'}> {<FaRegUser />} {userFromStore.email} </Link>
-              <button className='appNav__item enter' onClick={logout}>Выйти {<ImExit />}</button>
-              <button className='appNav__item save' onClick={saveHTML}>Сохранить HTML {<GiSave />}</button>
+              <button className='appNav__item enter' onClick={logout}>Sign out{<ImExit />}</button>
+              <button className='appNav__item save' onClick={saveHTML}>save HTML {<GiSave />}</button>
 
               <button className={saveLocalSuccess ? 'appNav__item success' : 'appNav__item'} onClick={saveLocal}>
-                {saveLocalSuccess ? <>Сохранено  {<IoMdDoneAll />} </> : <>Сохранить {<GiSave />} </> }
+                {saveLocalSuccess ? <>Saved  {<IoMdDoneAll />} </> : <>Save {<GiSave />} </> }
                 
               </button>
 
             </>
             :
             <>
-              <Link className='appNav__item enter' to={'/reg'}>Регистрация {<BiUserPlus />} </Link>
-              <Link className='appNav__item enter' to={'/login'}>Войти {<BiLogIn />} </Link>
+              <Link className='appNav__item enter' to={'/reg'}>Registration {<BiUserPlus />} </Link>
+              <Link className='appNav__item enter' to={'/login'}>Sign in {<BiLogIn />} </Link>
             </>
           }
 
