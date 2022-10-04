@@ -170,7 +170,7 @@ const Filed = () => {
         elements.length === 0 ? <div className='Field__prebuild'>
           <img src={boyWithHat} alt="img" />
           Let`s add some elements!
-          <span className='hideDiplom'>Здесь был Леонард Ахр, хуй</span>
+          {/* <span className='hideDiplom'>Здесь был Леонард Ахр, хуй</span> */}
         </div> : null
       }
 
