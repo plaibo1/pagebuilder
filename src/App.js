@@ -16,20 +16,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import Confetti from "react-confetti";
 import { setModalConfetti } from './redux/elements-reducer';
 import MySites from './components/MySites/MySites';
+import useMediaQuery from './hooks/useMatchMedia';
 
 function App() {
-
   const dispatch = useDispatch()
   const modalConfettiStatus = useSelector(state => state.elementsList.showConfetti)
-
+  const isBLock = useMediaQuery("(max-width: 1212px)")
 
   useEffect(()=> {
     dispatch(checkUser())
   }, [])
 
-
   const endConfetti = () => {
     dispatch(setModalConfetti(false))
+  }
+
+  if (isBLock) {
+    return (
+      <div className="blockFront">
+        Then more screen then more experience 🔥
+      </div>
+    )
   }
   
   return (
